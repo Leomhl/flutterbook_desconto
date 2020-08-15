@@ -9,30 +9,30 @@ void main() {
     const valorComDesconto = valorSemDesconto - desconto;
 
     expect(
-        calcularDesconto(valorSemDesconto, desconto, false), valorComDesconto);
+        calcularDesconto(valorSemDesconto, desconto, 0), valorComDesconto);
   });
 
   test('Deve calcular o desconto corretamente utilizando porcentagem', () {
     var desconto = 10.0;
     var valorComDesconto = 135.0;
-    expect(calcularDesconto(valorSemDesconto, desconto, true), valorComDesconto);
+    expect(calcularDesconto(valorSemDesconto, desconto, 1), valorComDesconto);
   });
 
   test('Deve dar erro ao calcula valor com desconto negativo ou zero', () {
-    expect(() => calcularDesconto(valorSemDesconto, -1, true),
+    expect(() => calcularDesconto(valorSemDesconto, -1, 1),
         throwsA(isA<ArgumentError>()));
 
-    expect(() => calcularDesconto(valorSemDesconto, 0, false),
+    expect(() => calcularDesconto(valorSemDesconto, 0, 0),
         throwsA(isA<ArgumentError>()));
   });
 
   test('Deve dar erro ao calcular desconto com valor inicial zero', () {
-    expect(() => calcularDesconto(0, 15, false),
+    expect(() => calcularDesconto(0, 15, 0),
         throwsA(isA<ArgumentError>()));
   });
 
   test('Deve dar erro ao calcular com valor inicial negativo', () {
-    expect(() => calcularDesconto(-1, 15, false),
+    expect(() => calcularDesconto(-1, 15, 0),
         throwsA(isA<ArgumentError>()));
   });
 }
