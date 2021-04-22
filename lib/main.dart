@@ -52,19 +52,20 @@ class _MyHomePageState extends State<MyHomePage> {
             Divider(),
             buildTextField("Inteiro/decimal", percentualController),
             Divider(),
-            RaisedButton(
+            ElevatedButton(
               onPressed: (){
                 setState(() {
-                  result = calcularDesconto(double.parse(initValueController.text), double.parse(discountController.text), int.tryParse(percentualController.text));
+                  result = calcularDesconto(
+                      double.parse(initValueController.text),
+                      double.parse(discountController.text),
+                      int.tryParse(percentualController.text)
+                  );
                 });
               },
               child: Text(
                 'Calcular',
                 style: TextStyle(fontSize: 20)
               ),
-              textColor: Colors.white,
-              color: Colors.blue,
-              padding: const EdgeInsets.all(8.0),
             ),
           ],
         ),
